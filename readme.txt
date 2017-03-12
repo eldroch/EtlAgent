@@ -1,0 +1,7 @@
+The ETLAgent toolset assumes the configuration databases (ETL_Environment, ETL_Control) will be created in a MS SQL Server environment -- presently developed within MS SQL Server 2014.  This also assumes the "data lake" will exist on MS SQL Server.  Minor adjustments will need to be made in order to use this under different platforms.
+
+
+To install the environment, run each of the .sql scripts found in \DDL, in the order of the prefixed sequence number.  This will create a single environment capable of extracting data and metadata from MS SQL, Postgres, Oracle, and MySQL databases.  Additionally, you may run the scripts prefixed with "example", but will most likely want to change the values to suit your system.
+
+
+At this time, you'll need to use the CS (C-Sharp) files in an "a la carte" fashion as the current version uses project data sources which will vary from one instance to another.  However, it should be fairly clear what the code is doing and how it interacts with the configuration database and the sources.  A future release will generate these connections based on parameters stored in the configuration database.  That way, you will only need to declare the connection string to the configuration database in the App.config for everything to work.  Soon...
